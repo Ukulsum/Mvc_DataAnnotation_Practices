@@ -1,0 +1,57 @@
+﻿@model DataAnnotationDemo.Models.Employee
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.LabelFor(m => m.EmpId) &nbsp; @Html.TextBoxFor(m => m.EmpId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EmpId, "", new { @class = "text-danger" })
+    </p>
+    <p>
+        @Html.LabelFor(m => m.EmpName) &nbsp; @Html.TextBoxFor(m => m.EmpName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EmpName, "", new { @class = "text-danger" })
+    </p>
+    <p>
+        @Html.LabelFor(m => m.EmpAge) &nbsp; @Html.TextBoxFor(m => m.EmpAge, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EmpAge, "", new { @class = "text-danger" })
+    </p>
+
+    <p>
+        @Html.LabelFor(m => m.EmpGender) &nbsp; @Html.TextBoxFor(m => m.EmpGender,new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EmpGender, "", new { @class = "text-danger" })
+    </p>
+    <p>
+        @Html.LabelFor(m => m.EmpEmail) &nbsp; @Html.TextBoxFor(m => m.EmpEmail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EmpEmail, "", new { @class = "text-danger" })
+    </p>
+    <p>
+        @Html.LabelFor(m => m.EmpPassword) &nbsp; @Html.EditorFor(m => m.EmpPassword, new{ htmlAttributes = new { @class = "form-control" }})
+        @Html.ValidationMessageFor(m => m.EmpPassword, "", new { @class = "text-danger" })
+    </p>
+
+    <p>@Html.LabelFor(m => m.EmpConfirmPassword) &nbsp; @Html.EditorFor(m=>m.EmpConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(m=>m.EmpConfirmPassword,"", new {@class = "text-danger"})
+    </p>
+
+    <p>@Html.LabelFor(m=>m.EmpOrganization) &nbsp; @Html.TextBoxFor(m=>m.EmpOrganization, new {@class = "form-control", @Value = "SAC Organization", @readonly = true})</p>
+
+    <p>@Html.LabelFor(m=>m.EmpAddress) &nbsp; @Html.EditorFor(m=>m.EmpAddress, new {htmlAttributes = new {@class = "form-control"}})
+    @Html.ValidationMessageFor(m=>m.EmpAddress,"",new {@class = "text-danger"})</p>
+
+    <p>@Html.LabelFor(m=>m.EmpJoinDate) &nbsp; @Html.EditorFor(m=>m.EmpJoinDate, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(m => m.EmpJoinDate, "", new {@class = "text-danger"})
+    </p>
+    <p>
+        @Html.LabelFor(m=>m.EmpJoinTime) &nbsp; @Html.EditorFor(m=>m.EmpJoinTime, new {htmlAttributes = new {@class = "form-control"}})
+        @Html.ValidationMessageFor(m => m.EmpJoinTime, "", new {@class = "text-danger"})
+    </p>
+
+    <input type="submit" value="submit" class="btn btn-success" />
+
+    @Html.Raw(ViewData["successMessage"])
+}
+
